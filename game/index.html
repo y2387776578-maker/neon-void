@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
+<title>NEON VOID — a neon arena survival game</title>
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #030309;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #game {
+    width: min(1280px, 100vw, calc(100vh * 16 / 9));
+    aspect-ratio: 16 / 9;
+    display: block;
+    background: #050510;
+    cursor: crosshair;
+    box-shadow: 0 0 60px rgba(80, 40, 255, 0.25);
+  }
+  #fallback {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: #8ef6ff;
+    font-size: 18px;
+    text-align: center;
+    padding: 24px;
+  }
+</style>
+</head>
+<body>
+<canvas id="game" width="1280" height="720"></canvas>
+<div id="fallback">NEON VOID needs JavaScript and the canvas element to run.</div>
+<script type="module" src="./src/main.js"></script>
+<script>
+  if (!window.HTMLCanvasElement) {
+    document.getElementById('fallback').style.display = 'flex';
+  }
+</script>
+</body>
+</html>
